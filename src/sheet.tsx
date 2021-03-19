@@ -120,8 +120,8 @@ const Sheet = React.forwardRef<any, SheetProps>(
           const sheetEl = sheetRef.current as HTMLDivElement;
           const contentHeight = sheetEl.getBoundingClientRect().height;
           const snapTo = contentHeight - snapPoints[snapIndex];
-
           sheetSpringY.set(snapTo);
+          setDragging(false);
           if (onSnap) onSnap(snapIndex);
           if (snapTo >= contentHeight) onClose();
         }
